@@ -1,0 +1,177 @@
+// {
+//     "swagger": "2.0",
+//     "title": "Appointment Builder API Documentation",
+//     "description": "Swagger API Documentation for Appointment MEAN Stack App",
+//     "license": {
+//         "name": "MIT",
+//         "url": "https://opensource.org/licenses/MIT"
+//     },
+//     "version": "1.0.0",
+//     "host": "localhost:2000",
+//     "basePath": "/api",
+//     "tags": [{
+//         "name": "Appointments",
+//         "description": "API for Appointment"
+//     }],
+//     "schemes": ["http"],
+//     "consumes": ["application/json"],
+//     "produces": ["application/json"],
+//     "paths": {
+//         "/Appointments": {
+//             "post": {
+//                 "tags": ["Appointments"],
+//                 "description": "Create new appointments in the system",
+//                 "parameters": [{
+//                     "name": "Appointment",
+//                     "description": "Appointment that we want to create appointment",
+//                     "in": "body",
+//                     "required": "true",
+//                     "schema": {
+//                         "$ref": "#definitions/Appointment"
+//                     }
+//                 }],
+//                 "produces": ["application/json"],
+//                 "responses": {
+//                     "200": {
+//                         "description": "new Appointment is created",
+//                         "schema": {
+//                             "$ref": "#definitions/Appointment"
+//                         }
+//                     }
+//                 }
+//             },
+//             "get": {
+//                 "tags": ["Appointments"],
+//                 "summary": "FInd all Appointments from the server",
+//                 "description": "All appointments",
+//                 "responses": {
+//                     "200": {
+//                         "description": "Ok",
+//                         "schema": {
+//                             "$ref": "#definitions/Appointments"
+//                         }
+//                     }
+//                 }
+//             }
+//         },
+//         "/Appointments/{token}": {
+//             "parameters": [{
+//                 "name": "token",
+//                 "in": "path",
+//                 "description": "Token of the Appointment",
+//                 "type": "string"
+//             }],
+//             "get": {
+//                 "tags": ["Appointments"],
+//                 "description": "Find the Appointment by token",
+//                 "summary": "Find single Appointment",
+//                 "responses": {
+//                     "200": {
+//                         "description": "Appointment has found",
+//                         "schema": {
+//                             "$ref": "#definitions/Appointment"
+//                         }
+//                     }
+//                 }
+//             },
+//             // "delete": {
+//             //     "tags": ["Appointments"],
+//             //     "description": "Delete the Appointment by id",
+//             //     "summary": "Delete single Appointment",
+//             //     "responses": {
+//             //         "200": {
+//             //             "description": "Appointment has deleted",
+//             //             "schema": {
+//             //                 "$ref": "#definitions/Appointment"
+//             //             }
+//             //         }
+//             //     }
+//             // },
+//             "put": {
+//                 "tags": ["Appointment"],
+//                 "summary": "Update an Appointment",
+//                 "description": "Update Appointment in the System",
+//                 "parameters": [{
+//                     "name": "Appointment",
+//                     "description": "Appointment that we want to udpate",
+//                     "in": "body",
+//                     "required": true,
+//                     "schema": {
+//                         "$ref": "#definitions/UpdateAppointment"
+//                     }
+//                 }],
+//                 "produces": ["application/json"],
+//                 "responses": {
+//                     "200": {
+//                         "description": "Appointment is updated",
+//                         "schema": {
+//                             "$ref": "#definitions/Appointment"
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     },
+//     "definitions": {
+//         "Appointment": {
+//             "required": ["tokenno,time,name,phoneno"],
+//             "properties": {
+//                 "tokenno": {
+//                     "type": "string",
+//                     "uniqueItems": true
+//                 },
+//                 "time": {
+//                     "type": "string"
+//                 },
+//                 "name": {
+//                     "type": "string",
+//                     "uniqueItems": true
+//                 },
+//                 "phoneno": {
+//                     "type": "number",
+//                     "uniqueItems": true
+//                 },
+//                 "location": {
+//                     "type": "string",
+
+//                 },
+//                 "note": {
+//                     "type": "string",
+
+//                 }
+
+//             }
+//         },
+//         // "UpdateAppointment": {
+//         //     "properties": {
+//         //         "item": {
+//         //             "type": "string"
+//         //         },
+//         //         "qty": {
+//         //             "type": "integer",
+//         //             "format": "int32"
+//         //         },
+//         //         "date": {
+//         //             "type": "string",
+//         //             "format": "date"
+//         //         },
+//         //         "due": {
+//         //             "type": "string",
+//         //             "format": "date"
+//         //         },
+//         //         "rate": {
+//         //             "type": "number",
+//         //             "format": "float"
+//         //         },
+//         //         "tax": {
+//         //             "type": "number",
+//         //             "format": "float"
+//         //         }
+//         //     }
+//         // },
+//         "Appointments": {
+//             "type": "array",
+//             "$ref": "#definitions/Appointment"
+//         }
+//     }
+// }

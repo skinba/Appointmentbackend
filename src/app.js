@@ -8,23 +8,28 @@ import {
 
 import logger from 'morgan';
 import cors from 'cors';
+import { devConfig } from "./config/env/development";
+import passport from "passport";
+import { configureJWTStrategy } from "./api/middlewares/passport-jwt";
 
 
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost/appointments", {
+mongoose.connect(`mongodb://localhost/${devConfig.database}`, {
     useFindAndModify: false
 });
 const app = express();
-const PORT = 2000;
+const PORT = devConfig.port;
 
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(cors());
 app.use('/api', router);
-app.use(logger('dev'))
+app.use(logger('dev'));
+app.use(passport.initialize());
+configureJWTStrategy();
 app.use((req, res, next) => {
     const error = new Error('Not Found');
-    error.message = 'Invlid Route';
+    error.message = 'Invalid Route';
     error.status = 404;
     next(error);
 

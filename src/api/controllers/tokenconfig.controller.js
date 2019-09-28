@@ -17,7 +17,6 @@ export default {
     },
 
     update(req, res) {
-        console.log(req.body);
         TokenConfig.findOneAndUpdate({
                 _id: req.body.id
             }, {

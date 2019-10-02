@@ -1,5 +1,5 @@
 export const devConfig = {
-    port :8080,
+    port :6000,
     database : 'appointments',
     secret : 'ADASTFDGSDHU'
 }

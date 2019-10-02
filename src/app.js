@@ -14,11 +14,19 @@ import { configureJWTStrategy } from "./api/middlewares/passport-jwt";
 
 
 mongoose.Promise = global.Promise;
-mongoose.connect(`mongodb://localhost/${devConfig.database}`, {
-    useFindAndModify: false
-});
+const db = 'mongodb://user98:user98@ds229258.mlab.com:29258/appointmentdb';
+
+
 const app = express();
 const PORT = devConfig.port;
+
+mongoose.connect(db, err => {
+    if (err) {
+      console.log('Error !' + err);
+    } else {
+      console.log('connected to mongoDB');
+    }
+  });
 
 app.use(express.json());
 app.use(express.urlencoded());

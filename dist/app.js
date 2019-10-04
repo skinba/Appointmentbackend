@@ -18,4 +18,4 @@ app.get('/', function (req, res) {
 app.listen(PORT, function () {
     console.log('server is running at port ' + 6000);
 });
-//# sourceMappingURL=app.js.map
+//# sourceMappingURL=server.js.map

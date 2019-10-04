@@ -45,9 +45,10 @@ app.use((req, res, next) => {
 
 app.use(function(req, res, next) {
   //set headers to allow cross origin request.
-  headers.append('Access-Control-Allow-Origin', '*');
-  headers.append('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
-  headers.append(
+  let headers = new Headers();
+  res.headers('Access-Control-Allow-Origin', '*');
+  res.headers('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+  res.headers(
     'Access-Control-Allow-Headers',
     'Origin, X-Requested-With, Content-Type, Accept'
   );

@@ -27,8 +27,8 @@ mongoose.connect(db, err => {
       console.log('connected to mongoDB');
     }
   });
-const cor = require('cors');
-app.use(cor());
+
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded());
 app.use('/api', router);

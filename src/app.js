@@ -19,6 +19,7 @@ const db = 'mongodb://user98:user98@ds229258.mlab.com:29258/appointmentdb';
 
 const app = express();
 const PORT = devConfig.port;
+const apiKey = devConfig.secret;
 
 mongoose.connect(db, err => {
     if (err) {

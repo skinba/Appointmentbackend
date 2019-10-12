@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/server.js --exec babel-node --presets env && node server.js",
+    "start": "nodemon src/server.js --exec babel-node --presets env && node src/server.js",
     "build": "babel src -d dist --source-maps",
-    "serve": "node dist/server.js"
+    "serve": "node dist/src/server.js"
   },
   "keywords": [],
   "author": "",

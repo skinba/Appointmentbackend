@@ -1,1 +1,1 @@
-web : node src/server.js
+web : nodemon src/server.js --exec babel-node --presets env && node src/server.js

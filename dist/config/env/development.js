@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 var devConfig = exports.devConfig = {
-    port: 8000,
+    port: 8080,
     database: 'appointments',
     secret: 'ADASTFDGSDHU'
 };
